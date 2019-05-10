@@ -11,32 +11,29 @@ config/local.js 配置本地使用url 这个需要拷贝local.bak.js成local.js�
 ## Build Setup
 
 ``` bash
-# 初始化项目
-vue init mpvue/mpvue-quickstart myproject
-cd myproject
-
 # 安装依赖
 yarn
 
 # 开发时构建
-npm dev
+yarn dev
+yarn devH5
 
 # 打包构建
-npm build
+yarn build
 
 # 指定平台的开发时构建(微信、百度、头条、支付宝)
-npm dev:wx
-npm dev:swan
-npm dev:tt
-npm dev:my
-npm dev:devH5
+yarn dev:wx
+yarn dev:swan
+yarn dev:tt
+yarn dev:my
+yarn devH5
 
 # 指定平台的打包构建
-npm build:wx
-npm build:swan
-npm build:tt
-npm build:my
-npm dev:buildH5
+yarn build:wx
+yarn build:swan
+yarn build:tt
+yarn build:my
+yarn buildH5
 
 
 # 生成 bundle 分析报告
