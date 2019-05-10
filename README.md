@@ -3,7 +3,8 @@
 > 基于mpvue扩展的H5，小程序双端开发平台,
 > 使用vue快速开发H5，开发完在小程序客户端修改，提升开发效率
 > 内置H5开发，编译脚本
-
+*** 实际案例
+微信搜索 天际汽车
 *** 注意事项
 
 config/local.js 配置本地使用url 这个需要拷贝local.bak.js成local.js来使用
@@ -80,4 +81,20 @@ npm run build --report
     main.wx 微信的主入口JS
 
 > static 静态目录，小程序里的图标使用，H5可以通过配置buildH5里的express脚本来使用
+
+### 项目特色
+继承了mpvue双端开发的高效，同时全面踩坑。
+项目目提供MP核心方法，提供mpvuePlatform全局变量做兼容性处理
+| 方法 | 使用说明 |
+| ------ | ------ | ------ |
+| request | 微信端使用wx.request，h5端使用axios |
+| MP.Loading | 加载动画 |
+| MP.Tip | tip框 |
+| MP.Confirm | 确认框 |
+| MP.Alert | Alert框 |
+| MP.getQuery | 获取当前页面的查询参数 |
+| MP.goBack | 回到上一级页面 |
+| MP.getPreiviousRoutename | 获取上一级页面的路由名字 |
+| MP.getCurrentRouter | 获取当前路由 |
+
 
