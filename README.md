@@ -84,7 +84,7 @@ npm run build --report
 项目目提供MP核心方法，提供mpvuePlatform全局变量做兼容性处理
 
 | 方法 | 使用说明 |
-| ------ | ------ | ------ |
+| ------ | ------ |
 | request | 微信端使用wx.request，h5端使用axios |
 | MP.Loading | 加载动画 |
 | MP.Tip | tip框 |
