@@ -1,0 +1,209 @@
+/**
+ * Created by 003135 on 2019/3/1
+ */
+.orderDetail-wrap {
+  padding: 10px 0 100px;
+  overflow: hidden;
+
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+  }
+
+  // .attention-wrap{
+  //   padding: 10px 15px 15px;
+  // }
+  .orderDetail-wrap-content {
+    padding: 0 20px;
+    font-size: 14px;
+    .orderInfo:last-child {
+
+      border: none;
+    }
+  }
+
+  .topImage img {
+    top: 20px;
+    width: 100%;
+    height: 206px;
+  }
+
+  .card-type {
+    display: flex;
+    flex-direction: row;
+    font-size: 28px;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 12px;
+    color: #0B2928;
+    text-align: center;
+    align-items: flex-end;
+  }
+
+  .orderDetail-peizhi {
+    font-size: 14px;
+    margin-top: 3px;
+    color: #333333;
+    display:flex;
+    .orderDetail-text{
+      flex: 0 0 28px;
+    }
+    .orderDetail-style {
+      // width: 259px;
+      flex: 1;
+      height: 20px;
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(151, 151, 151, 1);
+      line-height: 20px;
+      padding-left: 11px;
+      text-align: right;
+    }
+  }
+
+  .card-price {
+    line-height: 20px;
+    //display: flex;
+    margin-top: 14px;
+    .yi-price{
+      display: flex;
+    }
+    .flex-item{
+      flex: 1;
+    }
+    .amount-car-price {
+      font-size: 14px;
+      color: #333333;
+
+      .amount-price {
+        color: #979797;
+        line-height: 14px;
+        font-family: "DIN Alternate-Bold";
+      }
+    }
+
+    .yi-price {
+      color: #333333;
+      font-size: 14px;
+      line-height: 20px;
+      height: 20px;
+      //flex: 1;
+      .price-green {
+        color: #3BD1CA;
+        font-size: 15px;
+        padding-left: 10px;
+        align-items: center;
+      }
+    }
+
+  }
+
+
+  .order-info {
+    background-color: #f4f4f4;
+    font-size: 16px;
+    margin-top: 14px;
+    height: 20px;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding: 10px 0 10px  20px;
+    line-height: 20px;
+  }
+
+  .orderDetail-info {
+    /*background-color: #F7F7F7;*/
+
+    .orderinfo-my {
+      color: #000000;
+      font-size: 16px;
+      height: 40px;
+      line-height: 40px;
+      padding-left: 15px;
+      background: #F7F7F7;
+      padding-bottom: -20px;
+    }
+
+    .order-detail-quanyi {
+      margin-bottom: 83px;
+
+      .quanyi-image-content {
+        width: 100%;
+      }
+    }
+  }
+
+  .orderDetail-payInfo {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 82px;
+    border-top: 1px solid #EAEAEA;
+    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    display: flex;
+    background: #fff;
+    display: flex;
+
+    & > div {
+      flex: 1;
+      display: flex;
+      //align-items: center;
+      justify-content: center;
+      position: relative;
+      margin-top: 16px;
+    }
+
+    & > div:nth-child(2):before {
+      content: '';
+      width: 2px;
+      height: 18px;
+      float: left;
+      background: #EAEAEA;
+      position: absolute;
+      left: 0;
+      top: 4px;
+
+    }
+
+    //border-top: 1px solid #EAEAEA;
+    //bottom: 0px;
+    //display: flex;
+    //position: fixed;
+    //right: 0px;
+    //flex-direction: row-reverse;
+    //background-color: white;
+    //height:83px;
+    //width: 100%;
+    //font-size: 14px;
+    .orderDetail-pay {
+      min-width: 86px;
+      height: 28px;
+      line-height: 28px;
+      background-color: #3BD1CA;
+      padding: 0 5px;
+      color: #fff;
+      font-size: 14px;
+      border-radius: 20px;
+      border: 0px;
+      //margin-top: 16px;
+      //margin-right: 25px;
+    }
+
+    .orderDetail-cancel {
+      min-width: 86px;
+
+      background: none;
+      height: 28px;
+      font-size: 14px;
+      line-height: 28px;
+      color: #979797;
+      border: none;
+      //margin-top: 16px;
+      //margin-right: 24px;
+    }
+  }
+
+}

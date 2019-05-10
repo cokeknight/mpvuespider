@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="manifest" href="manifest.json">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport"
+        content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta content="black" name="apple-mobile-web-app-status-bar-style">
+  <meta name="format-detection" content="telephone=no" />
+  <title>天际汽车</title>
+  <meta name="keywords" content="天际汽车">
+  <meta name="description" content="天际汽车">
+  <meta name="apple-mobile-web-app-title" content="天际汽车">
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="apple-touch-startup-image" href="/startup.png">
+  <link rel="dns-prefetch" href="//hd.xinhehui.com">
+  <link rel="dns-prefetch" href="//img.yrz.cn">
+  <script src="//res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+  <script src="//at.alicdn.com/t/font_320781_cmqm75h9yyf.js"></script>
+  <script async="async" src="//static.geetest.com/static/tools/gt.js"></script>
+  <%
+  var cssArr = htmlWebpackPlugin.files.css;
+  var jsArr = htmlWebpackPlugin.files.js.filter(function(item) {
+  return !/icons/.test(item)
+  })
+  %>
+  <script type="text/javascript">
+
+  (function(){var localStorage=window.localStorage,Storage=window.Storage;
+    function getLocalStrageSize(){
+      if(!window.localStorage) {
+        console.log('浏览器不支持localStorage');
+      }
+      var size = 0;
+      for(item in window.localStorage) {
+          if(window.localStorage.hasOwnProperty(item)) {
+              size += window.localStorage.getItem(item).length;
+          }
+      }
+      return (size / 1024).toFixed(2)
+    }
+    if(typeof localStorage==="object"){
+      var size = getLocalStrageSize()
+      if (size > 2000) {localStorage.clear()}
+      try{localStorage.setItem("a",1);localStorage.removeItem("a")}catch(e){Storage.prototype._setItem=Storage.prototype.setItem;Storage.prototype.setItem=function(){}}}}());
+  var is_init = window.localStorage.getItem('xhh_all_cg');if(!is_init){window.localStorage.clear();window.localStorage.setItem('xhh_all_cg',1)}
+  window.parseStatic={cssArr:<%=JSON.stringify(cssArr)%>,jsArr:<%=JSON.stringify(jsArr)%>,cssContent:{loaded:false},jsContent:{loaded:false,arr:[]},ajax:function(url,callback){var xhr=new XMLHttpRequest();xhr.onreadystatechange=function(){if(xhr.readyState===4&&xhr.status===200){callback(xhr.responseText)}};xhr.open("GET",url);xhr.send(null)},transferLocalKey:function(str){return str.match(/[^\/]*$/)[0]},createDom:function(str,isCss){var dom=document.createElement(isCss?"style":"script");dom.innerHTML=str;return dom},appendDom:function(isCss,arr){var docFrame=document.createDocumentFragment(),parentDom=document[isCss?"head":"body"],len=arr.length;for(var i=0;i<len;i++){docFrame.appendChild(arr[i])}parentDom.appendChild(docFrame)},delLocOldData:function(){var self=this,newArr=[],delArr=[];appendKeys(self.cssArr);appendKeys(self.jsArr);function appendKeys(arr){var len=arr.length;for(var i=0;i<len;i++){newArr.push(self.transferLocalKey(arr[i]))}}newArr.forEach(function(k){var kArr=k.split("."),loc=window.localStorage,len=loc.length;for(var i=0;i<len;i++){var locKey=loc.key(i);var locKArr=locKey.split(".");if(k!=locKey&&kArr[0]==locKArr[0]&&kArr[2]==locKArr[2]){delArr.push(locKey)}}});delArr.forEach(function(key){window.localStorage.removeItem(key)})},render:function(isCss){var self=this,arr=isCss?self.cssArr:self.jsArr,len=arr.length,curCount=len,loc=window.localStorage,targetArr=Array(len);arr.forEach(function(url,index){var locKey=self.transferLocalKey(url);var locVal=loc[locKey];if(locVal){callBack(index,locVal)}else{(function(i,k){self.ajax(url,function(str){callBack(i,str,k)})}(index,locKey))}});function callBack(i,val,locKey){targetArr[i]=self.createDom(val,isCss);if(locKey){loc.setItem(locKey, val)}curCount--;if(!curCount){self.complete(isCss,targetArr)}}},complete:function(isCss,arr){var self=this,jsContent=self.jsContent,cssContent=self.cssContent,finish=false;if(isCss){self.cssContent.loaded=true;self.appendDom(true,arr);if(self.jsContent.loaded){self.appendDom(false,self.jsContent.arr);finish=true}}else{self.jsContent.loaded=true;if(!self.cssContent.loaded){self.jsContent.arr=arr}else{self.appendDom(false,arr);finish=true}}if(finish){self.delLocOldData();delete window.parseStatic}},renderCss:function(){this.render(true)},renderJs:function(){this.render()}};parseStatic.renderCss();</script>
+  <style>
+    #app{display: none;}
+  </style>
+</head>
+<body>
+<script>(function(){if(/device=(1|2)($|&)/.test(location.href)){var styleNode=document.createElement('style');styleNode.innerHTML='#loading{display:none}';document.head.appendChild(styleNode);}}())</script>
+<div id=loading>
+  <style>.ui-loading-container{font-size:13px;position:absolute;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);background-color:rgba(0,0,0,0.6);padding:0 30px 10px;border-radius:10px}.loading-ios{width:60px;height:54px;-webkit-transform:scale(0.3);transform:scale(0.3)}.loading-piece{top:10px;left:20px;width:4px;height:20px;background:#fff;border-radius:10px;position:absolute}@-webkit-keyframes loading-ios-anim{0%{opacity:1}100%{opacity:0}}@keyframes loading-ios-anim{0%{opacity:1}100%{opacity:0}}.loading-piece{-webkit-animation:loading-ios-anim 1s linear infinite;animation:loading-ios-anim 1s linear infinite}.loading-ios>div:nth-of-type(1){-webkit-animation-delay:-0.5s;animation-delay:-0.5s;-webkit-transform:rotate(0deg) translate(0,-40px);transform:rotate(0deg) translate(0,-40px)}.loading-ios>div:nth-of-type(2){-webkit-animation-delay:-0.4166666666666667s;animation-delay:-0.4166666666666667s;-webkit-transform:rotate(30deg) translate(0,-40px);transform:rotate(30deg) translate(0,-40px)}.loading-ios>div:nth-of-type(3){-webkit-animation-delay:-0.33333333333333337s;animation-delay:-0.33333333333333337s;-webkit-transform:rotate(60deg) translate(0,-40px);transform:rotate(60deg) translate(0,-40px)}.loading-ios>div:nth-of-type(4){-webkit-animation-delay:-0.25s;animation-delay:-0.25s;-webkit-transform:rotate(90deg) translate(0,-40px);transform:rotate(90deg) translate(0,-40px)}.loading-ios>div:nth-of-type(5){-webkit-animation-delay:-0.16666666666666669s;animation-delay:-0.16666666666666669s;-webkit-transform:rotate(120deg) translate(0,-40px);transform:rotate(120deg) translate(0,-40px)}.loading-ios>div:nth-of-type(6){-webkit-animation-delay:-0.08333333333333331s;animation-delay:-0.08333333333333331s;-webkit-transform:rotate(150deg) translate(0,-40px);transform:rotate(150deg) translate(0,-40px)}.loading-ios>div:nth-of-type(7){-webkit-animation-delay:0s;animation-delay:0s;-webkit-transform:rotate(180deg) translate(0,-40px);transform:rotate(180deg) translate(0,-40px)}.loading-ios>div:nth-of-type(8){-webkit-animation-delay:.08333333333333337s;animation-delay:.08333333333333337s;-webkit-transform:rotate(210deg) translate(0,-40px);transform:rotate(210deg) translate(0,-40px)}.loading-ios>div:nth-of-type(9){-webkit-animation-delay:.16666666666666663s;animation-delay:.16666666666666663s;-webkit-transform:rotate(240deg) translate(0,-40px);transform:rotate(240deg) translate(0,-40px)}.loading-ios>div:nth-of-type(10){-webkit-animation-delay:.25s;animation-delay:.25s;-webkit-transform:rotate(270deg) translate(0,-40px);transform:rotate(270deg) translate(0,-40px)}.loading-ios>div:nth-of-type(11){-webkit-animation-delay:.33333333333333337s;animation-delay:.33333333333333337s;-webkit-transform:rotate(300deg) translate(0,-40px);transform:rotate(300deg) translate(0,-40px)}.loading-ios>div:nth-of-type(12){-webkit-animation-delay:.41666666666666663s;animation-delay:.41666666666666663s;-webkit-transform:rotate(330deg) translate(0,-40px);transform:rotate(330deg) translate(0,-40px)}.loading-text{color:white;text-align:center}</style>
+  <div class="ui-loading-container"><div class="loading-ios"><div class="loading-piece"></div><div class="loading-piece"></div><div class="loading-piece"></div><div class="loading-piece"></div><div class="loading-piece"></div><div class="loading-piece"></div><div class="loading-piece"></div><div class="loading-piece"></div><div class="loading-piece"></div><div class="loading-piece"></div><div class="loading-piece"></div><div class="loading-piece"></div></div><div class="loading-text">加载中</div></div></div>
+</div>
+<div id=app></div>
+
+<script>parseStatic.renderJs()</script>
+<script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=SZhIwVTwdfgvWbSVXBViO6SEXM3YVQDV&s=1"></script>
+<script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="//hm.baidu.com/hm.js?92bd50a31cf534a19430859e60d325fd";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();</script>
+</body>
+</html>

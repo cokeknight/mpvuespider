@@ -1,0 +1,463 @@
+@charset "UTF-8";
+@import "variable/_global";
+
+html {
+  font-size: 12px; //默认16px
+  /* 禁用iPhone中Safari的字号自动调整 */
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-user-select: none;
+}
+
+/* 去除iPhone中默认的input样式 */
+input[type="submit"], input[type="reset"], input[type="button"] {
+  -webkit-appearance: none;
+  resize: none;
+}
+
+body {
+  line-height: 1.6;
+  font-family: @sansFont;
+  background: @white;
+  color: @grey-light;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+#wrap {
+  height: 100%;
+  width: 100%;
+  display: block;
+  overflow: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+a, a:link {
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+a {
+  color: @grey-light;
+}
+
+a, button, input, textarea {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+img {
+  border: 0;
+  vertical-align: middle;
+}
+
+li {
+  list-style-type: none;
+}
+
+em, i {
+  font-style: normal;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+input[type=color], input[type=date], input[type=datetime-local], input[type=datetime], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week], textarea {
+  color: @input-text;
+}
+
+input::-moz-placeholder, textarea::-moz-placeholder {
+  color: @input-placeholder;
+}
+
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  color: @input-placeholder;
+}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: @input-placeholder;
+  text-indent: 0;
+}
+
+input[disabled], input[readonly]:not(.cloned-text-input), select[disabled], select[readonly], textarea[disabled], textarea[readonly]:not(.cloned-text-input) {
+  background-color: transparent;
+}
+
+.item-select select {
+  color: @grey-light;
+}
+
+.ltr-select select {
+  direction: ltr;
+}
+
+.reset, fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.padding-0 {
+  padding: 0 !important;
+}
+
+
+// padding margin 基本引用 value
+.padding-10 {
+  padding: 10px;
+}
+
+.padding-15 {
+  padding: 15px;
+}
+
+.padding-20 {
+  padding: 20px;
+}
+
+.margin-10 {
+  margin: 10px;
+}
+
+.border-top {
+  border-top: @border;
+}
+
+.bgWhite {
+  background-color: @white;
+}
+
+//基础 width
+// @include width;
+
+//左右浮动 left right
+.left {
+  // @include float;
+}
+
+.right {
+  // @include float(right);
+}
+
+.inline {
+  display: inline-block;
+}
+
+//文字方向
+.t-center {
+  text-align: center;
+}
+
+.t-left {
+  text-align: left;
+}
+
+.t-right {
+  text-align: right;
+}
+
+.ovh {
+  overflow: hidden;
+}
+
+//尺寸表
+.width-20 {
+  width: 20%;
+}
+
+.width-30 {
+  width: 30%;
+}
+
+.disabled {
+  // @include disabled(@grey-dd, @white);
+  border: none;
+}
+
+//下拉副菜单
+// %menu-position-value {
+//   @extend %absolute;
+//   top: 0;
+//   // @include max-width;
+// }
+
+.mask-box {
+  background: @dark;
+  opacity: 0.5;
+  // @include height(flase, 100%, auto);
+  // @extend %menu-position-value;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  z-index: 10;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  &.font-normal-color {
+    background: rgba(0, 0, 0, .3);
+    opacity: inherit;
+  }
+}
+
+// css3模块  -- fanzhichao
+// display: flex; 要放上面
+// display: -webkit-box; 放下面
+// 顺序不可变
+// 后面-webkit-box-flex: 1; 顺序也一样
+.css3-flex {
+  display: flex;
+  display: -webkit-box;
+}
+
+.css3-flex > * {
+  flex: 1;
+  -webkit-box-flex: 1;
+  width: 100%;
+  display: block;
+  min-width: 60px;
+}
+
+// 过度效果
+.css3-animation {
+  transition: .4s ease;
+}
+
+.fixed-foot {
+  position: fixed;
+  bottom: 0;
+  width: 100%
+}
+
+.c_red {
+  color: #f00;
+}
+
+.c_green {
+  color: #77be2a;
+}
+
+.c_orange {
+  color: #FF8500;
+}
+
+.c_white {
+  color: #fff;
+}
+
+.c_333 {
+  color: #333;
+}
+
+.c_blue {
+  color: #10a0eb;
+}
+
+.c_999 {
+  color: #999;
+}
+
+.blue1 {
+  color: @blue1;
+}
+
+.font30 {
+  font-size: 30px;
+}
+.font18{
+  font-size: 18px;
+}
+.font14{
+  font-size: 14px;
+}
+.font12 {
+  font-size: 12px;
+}
+.font13 {
+  font-size: 13px;
+}
+.lh20{
+ line-height: 20px;
+}
+.gray {
+  color: @grey-light;
+}
+.fr{
+  float: right;
+}
+.tl {
+
+}
+.padding10{
+  padding:10px;
+}
+.height60{
+  height: 60px;
+}
+.image{
+  width:100%
+}
+.gray-text {
+  color: @gray-text;
+}
+
+// 中划线
+.line-through {
+  width: 80%;
+  min-width: 300px;
+  margin: 10px auto 0;
+  position: relative;
+  text-align: center;
+  font-size: 14px;
+
+  &:before {
+    content: '';
+    height: 1px;
+    background: #ccc;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+  }
+
+  > * {
+    display: inline-block;
+    background: #f0f0f0;
+    padding: 0 20px;
+  }
+}
+
+.content-inner {
+  padding: 15px;
+}
+
+// 一行文本多则截取掉
+.text-ellipsis {
+  // @include text-ellipsis;
+}
+
+// 在app里也会用到，由于app里会去掉header所以里面的图片值会有变化
+// appMask-inner当app里时会maring-top:-48px;就是header的位置
+// 里面的元素都用absolute定位，相对appMask-inner定位
+// <div class="appMask">
+//  <div class="appMask-inner">
+//    xxxxx
+//  </div>
+//</div>
+.appMask {
+  // @extend .mask;
+  &-inner {
+    position: absolute;
+  }
+}
+
+.fromApp .appMask-inner {
+  margin-top: -48px;
+}
+
+// ios11初始化iscroll会加入translateZ(0px)
+// 如果包括scrollNode在内里面没可以撑起高度的内容，即只有tag
+// 这时内容会不显示，所以要给他个初始化高度
+.scrollNode {
+  min-height: 1px;
+}
+
+.clearfix {
+  zoom: 1;
+
+  &:before, &:after {
+    content: "";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+.ml5 {
+  margin-left: 5px;
+}
+.ml10 {
+  margin-left: 10px;
+}
+
+.ml20 {
+  margin-left: 20px;
+}
+.mt20{
+  margin-top: 20px;
+}
+.layout {
+  padding-left: 15px;
+  padding-right: 15px;
+  box-sizing: border-box;
+}
+
+.fixed {
+  .layout;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}
+
+.layoutpadding {
+  padding: 15px 15px;
+}
+
+.pr15 {
+  padding-right: 15px;
+}
+
+.mag-r10 {
+  margin-right: 10px;
+}
+
+.noscroll,
+.noscroll body {
+  overflow: hidden;
+}
+
+.noscroll body {
+  position: relative;
+}
+
+.no-button {
+  padding: 0px;
+  border: none;
+  width: 100%;
+  line-height: 0;
+}
+.no-button-bg {
+  padding: 0px;
+  border: none;
+  width: 100%;
+  background: none;
+}
+.absolute_center {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.border-bottom{
+  border-bottom: 1px solid #efefef;
+}
+.c-light{
+  text-align: center;
+  line-height: 40px;
+}
+.blue-text{
+  color: @blue-text;
+}

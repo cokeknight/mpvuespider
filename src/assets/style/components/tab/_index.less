@@ -1,0 +1,88 @@
+@charset "UTF-8";
+// 这是基础代码
+.tabbox{
+  font-size:14px;
+  white-space:nowrap;
+  line-height:44px;
+  text-align:center;
+  width:100%;
+  ul{
+    /* display:flex;
+    display: -webkit-box; */
+    overflow-x:auto;
+    width: 100%;
+    // 去掉webkit的滚动条
+    &::-webkit-scrollbar{
+      height:0;
+    }
+  }
+  li{
+    /* flex:1;
+    -webkit-box-flex:1; */
+    padding:0 10px;
+    min-width:60px;
+  }
+
+  &.fixed{
+    position:fixed;
+    top:48px;
+    z-index:10;
+    left:0;
+  }
+
+  // 下面有线
+  &.line{
+    background:#fff;
+    font-size:15px;
+    color:#8e8e8e;
+
+    li{
+      border-bottom:2px solid transparent;
+
+      &.active{
+        border-color:#10a0eb;
+        color:#10a0eb;
+      }
+    }
+  }
+
+  // 有灰色背景的
+  &.gray{
+    background:#f8f8f8;
+    color:#999;
+
+    .active{
+      background:#fff;
+      color:#333;
+    }
+  }
+
+  // 圆角蓝框
+  &.cricle{
+    width:94%;
+    margin:0 auto;
+    min-width:300px;
+    background:#fff;
+    color:#10a0eb;
+    line-height:35px;
+    border-radius: 5px;
+    border:1px solid #10a0eb;
+    overflow:hidden;
+
+    li{
+      border-left:1px solid #10a0eb;
+
+      &:first-child{
+        border:0;
+      }
+    }
+
+    .active{
+      background:#10a0eb;
+      color:#fff;
+    }
+  } 
+}
+.wap-base .tabbox.fixed{
+  top:49px;
+}

@@ -1,0 +1,53 @@
+.weui-cell-noborder() {
+  padding: 5px 10px;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.card {
+  margin: 20px;
+  text-align: left;
+  font-size: 12px;
+  padding: 20px;
+
+  &.imagecard {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  &.nopadding {
+    padding: 0px;
+  }
+
+  &.center {
+    text-align: center;
+  }
+
+  .image {
+    width: 100%;
+    height: 100%;
+  }
+
+  &.usercard {
+    box-shadow: 0px 0px 10px 2px darkgrey;
+    background: white;
+    border-radius: 10px;
+  }
+
+  .list-info {
+    .weui-cell-noborder;
+    padding: 0px 10px;
+    color: #808080;
+  }
+
+  .primarytitle {
+    font-size: 25px;
+    color: black;
+  }
+}
+

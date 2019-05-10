@@ -1,0 +1,259 @@
+@charset "UTF-8";
+// 内容为 .list- 开头
+// 一般列表
+
+.arr-down{
+  &:before{
+    transform:rotate(45deg);
+    top:-1px;
+    left:2px;
+  }
+}
+.arr-up{
+  &:before{
+    transform:rotate(225deg);
+    top:5px;
+    left:2px;
+  }
+}
+.arr-left{
+  &:before{
+    transform:rotate(135deg);
+    top:2px;
+    left:5px;
+  }
+}
+.list-menu{
+	margin-bottom:10px;
+	&-item{
+    line-height: initial;
+    &.nologin{
+      color: #cccccc;
+    }
+    &.sticky{
+      position: sticky;
+      top: 48px;
+      left: 0px;
+      z-index: 9999;
+      &.wx{
+        top: 0px;
+      }
+    }
+		padding-left: 15px;
+    background: #fff;
+    &.dark{
+      background: rgba(247, 247, 247, 1);
+    }
+		&.list-menu-close{
+			.list-menu-side{
+				.list-menu-arr{
+					transform:rotate(-90deg);
+				}
+				.xhh-arr{
+					.arr-up;
+				}
+			}
+			.list-menu-body{
+				display: none;
+			}
+
+		}
+		&.list-menu-open{
+			.list-menu-side{
+
+				.list-menu-arr{
+					transform:rotate(90deg);
+					top: 0;
+				}
+				.xhh-arr{
+				  .arr-down;
+				}
+			}
+			.list-menu-body{
+				display: block;
+			}
+
+		}
+		&.no-bg{
+			background:none;
+		}
+		&.no-border .list-menu-head{
+			border:none;
+		}
+	}
+	&-head{
+		padding:13px 15px 13px 0;
+		border-bottom: 1px solid #efefef;
+		font-size:15px;
+    position:relative;
+    display: flex;
+    align-items: center;
+    .front-icon{
+      margin-right: 10px;
+    }
+    .front-avatar{
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+    }
+		// .flex-box;
+  }
+  &-main{
+    flex: 1;
+  }
+	&-label{
+		padding-right: 15px;
+		min-width: 80px;
+	}
+	&-side{
+    .side{
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      max-width: 104px;
+    }
+
+    min-height: 20px;
+		padding-left: 15px;
+    color:#aaa;
+    &.blue1{
+      color: @blue1;
+    }
+    // display: none;
+    .arrow{
+      margin-left: 13px;
+      min-height: 20px;
+    }
+		.xhh-arr{
+			margin-left: 10px;
+    }
+
+		.list-menu-arr{
+			top: -2px;
+			position: relative;
+			width:12px;
+			height:12px;
+      // fill: #e0e0e0;
+      &.xhh-icon{
+        width: 1.4rem;
+        height: 1.4rem;
+        color: #969799;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+      }
+		}
+  }
+
+	&-body{
+		padding:12px 15px 12px 0;
+		color:#aaa;
+		border-bottom: 1px solid #efefef;
+		display: none;
+	}
+	&-bodyimg{
+		padding: 5px 0;
+		border-top: 1px solid #fff;
+		border-bottom: 1px solid #efefef;
+		position: relative;
+		top: -1px;
+		img {
+			width: calc(100% - 15px);
+		}
+	}
+	// 字号为17px。。多数用在form上
+	&-big &-head{
+		font-size: 17px;
+	}
+	// 银行卡
+	&-bank{
+		.list-menu-head{
+			font-size: 15px;
+		}
+
+		.list-menu-main {
+			i{
+				position:absolute;
+				left:0;
+				top: 50%;
+				width: 30px;
+				height:30px;
+				transform: translateY(-50%);
+			}
+			dd{
+				margin-top:-5px;
+				font-size:12px;
+				color: @c-light;
+			}
+		}
+
+		&.has-bank-code{
+			.list-menu-head{
+				padding-left:40px;
+			}
+		}
+	}
+
+	// 颜色翻转
+	&.color-turn, &-item.color-turn{
+		.list-menu-head{
+			color: #aaa;
+		}
+		.list-menu-side{
+			color: #333;
+		}
+	}
+
+	// 间隙
+	&-gap &-item, &-item.space-bottom, &-item:last-child{
+		.list-menu-body, .list-menu-head{
+			border-bottom:0;
+		}
+		.list-menu-body{
+			border-top:1px solid #efefef;
+		}
+		margin-bottom:10px;
+	}
+	&-item:last-child{
+		margin-bottom:0;
+	}
+}
+.no-flex{
+  flex: initial;
+}
+.fiexd-height{
+  height: 27px;
+}
+// icon 列表
+.list-icon{
+	margin-bottom: 20px;
+	ul{
+		float:left;
+		width:100%;
+		margin-bottom:-20px;
+	}
+	li{
+		float: left;
+		width: 25%;
+		margin-bottom:20px;
+		text-align:center;
+		position:relative;
+	}
+
+	.xhh-icon{
+		width: 25px;
+		height:25px;
+		position: static;
+	}
+	&-name{
+		margin-top: 3px;
+	}
+	.clearfix;
+}
+.list-no-last{
+  .list-menu-item:last-child .list-menu-head{
+    border-bottom: 1px solid #efefef;
+  }
+  .list-menu-item:last-child {
+    // margin-bottom: 10px;
+  }
+}

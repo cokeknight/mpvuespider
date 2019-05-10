@@ -1,0 +1,403 @@
+.smallplacehohlder::-webkit-input-placeholder{ /* WebKit, Blink, Edge */
+  font-size: 12px;
+}
+/*createDeal*/
+.createDeal{
+  margin-top: 42px;
+  .text{
+    padding-bottom: 37px;
+    text-align: center;
+    color: #0B2928;
+    font-size:20px;
+    font-weight:500;
+    border-bottom: 1px solid #CCC;
+  }
+}
+@keyframes fadeInUp{
+  0%{
+    -webkit-transform:translate3d(0,100%,0);
+    opacity:0;
+    transform:translate3d(0,100%,0)
+  }
+  to{
+    -webkit-transform:translateZ(0);
+    opacity:1;
+    transform:translateZ(0)
+  }
+}
+.slider{
+  // transition: transform 0.3s;
+  // transform: translateY(100%);
+  // min-height: 300px;
+  &.show{
+    animation-name: fadeInUp;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+  }
+}
+button::after{
+  border: none;
+}
+
+/***message****/
+.messageCenter{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 13px 15px;
+  border-bottom: 1px solid #eeeeee;
+  .item{
+    flex: 1;
+    text-align: center;
+  }
+}
+/***message****/
+.messageCenterCircle{
+  background:#FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 10px ;
+  margin:0 10px 10px;
+  border-radius:10px;
+  border-bottom: 1px solid #eeeeee;
+  .item{
+    flex: 1;
+    text-align: center;
+  }
+}
+
+/***message****/
+.messageCenterCircleSys{
+  background:#FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 10px ;
+  margin:0 10px 10px;
+  border-radius:10px;
+  border-bottom: 1px solid #eeeeee;
+  .item{
+    flex: 1;
+    text-align: center;
+  }.box{
+      flex-direction:column;
+     }
+}
+
+/***message****/
+.messageCenterCircleCenter{
+  background:#FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width:100%;
+  height:100%;
+  border-bottom: 1px solid #eeeeee;
+  .item{
+    flex: 1;
+    text-align: center;
+  }
+}
+
+/****login***********/
+.wap-base.bg-white.loginpage{
+  background: url("https://obs-5025.obs.cn-east-2.myhuaweicloud.com/prod/banner-me7.png") center center;
+  background-size: 100%;
+  .titlebar{
+    background: none;
+    box-shadow: none;
+    .icon-back{
+      &::before{
+        color: white;
+        font-size: 25px;
+      }
+    }
+  }
+  .back-icon{
+    position: absolute;
+    left: 10px;
+    top: 40px;
+    &::before{
+      color: white;
+      font-size: 25px;
+    }
+  }
+  .logo{
+    margin-top: 78px;
+    text-align: center;
+    .logoimg{
+      width: 267px;
+      height: 24px;
+    }
+  }
+  .login-mod{
+    background: none;
+    margin-top: 60px;
+  }
+  &.wxauth{
+    .btn-primary{
+      margin-top: 0px;
+    }
+  }
+  .btn-primary{
+    margin-top: 60px;
+  }
+  .btn-label{
+    margin-top: 0px;
+    background: none;
+    line-height: 30px;
+    width: 100px;
+    height: auto;
+    min-width: auto;
+  }
+  .weixn-login{
+    margin-top: 20px;
+    text-align: center;
+    .weixn-login-icon::before{
+      color: white;
+    }
+    .wexin-login-btn{
+      color: #fff;
+      margin-top: -20px;
+    }
+  }
+
+  .list-menu-main{
+    border-right: 0px;
+  }
+  .list-menu-head{
+    padding-right: 0px;
+    border-bottom-color: #bfbfbf;
+  }
+  .login-mod .list-menu-item{
+    padding: 0px;
+    background: none;
+    color: #fff;
+    input{
+      background: none;
+      color: #fff;
+    }
+    input::-webkit-input-placeholder{ /* WebKit, Blink, Edge */
+      color:    #bfbfbf;
+    }
+    .place-holder{
+      color: white;
+    }
+    .dynamicCode{
+      color: white;
+      border: 1px white solid;
+      border-radius: 20px;
+      width: 100px;
+    }
+
+  }
+  .registerWay-protocol{
+    display: flex;
+    // padding-left: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+    color: white;
+    .checkbox{
+      vertical-align: -2px;
+    }
+  }
+}
+/****电咖 popbox******/
+.dianka{
+  .popbox-body{
+    position: relative;
+    padding: 50px 30px 30px 30px;
+    color: #666666;
+    box-sizing: border-box;
+    background: #FCFCFC;
+    line-height: 25px;
+    .icon-circleclose{
+      position:absolute;
+      right: 5px;
+      top: 5px;
+      &::before{
+        color: #979797;
+      }
+    }
+  }
+  &.diankaconfirm{
+    .popbox-body{
+      padding: 0px;
+    }
+  }
+}
+/*** 编辑资料 *******/
+.side-avatar{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+/****头像上传****/
+.set-items {
+  clear: both;
+  overflow: hidden;
+  padding-top: 12px;
+  background-color: #f0f0f0;
+  ul{
+    width: 100%;
+    background-color: #fff;
+  }
+  .item{
+    height: 60px;
+    line-height: 60px;
+    padding: 0 12px;
+    border-bottom: 1px solid #eee;
+    overflow: hidden;
+    color: #333;
+  }
+  .choose-album {
+    text-align: center;
+    padding: 0;
+    position: relative;
+    input{
+      opacity: 0;
+    }
+    p{
+      position: absolute;
+      left: 50%;
+      margin-left: -50px;
+    }
+  }
+}
+.photo-setting{
+  width: 100%;
+  height: 216px;
+  //line-height: 216px;
+  background:@blue1;
+  //text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+}
+.avatar-setting {
+  .titlebar{
+    background: #10a0eb;
+    color: #fff;
+    box-shadow: none;
+    .titlebar-title{
+      color: #fff;
+    }
+  }
+}
+.uploadbtn{
+  display: block;
+  height: 60px;
+}
+/*消息***********/
+.contact-list{
+  .list-menu-label{
+    min-width: auto;
+  }
+  .list-menu-side.gray-text{
+    color: #768786;
+  }
+  .text-time{
+    font-size: 12px;
+    margin-top: -18px;
+  }
+  .list-menu-main{
+    .text-s{
+      color: #768786;
+      font-size: 12px;
+
+    }
+  }
+
+}
+.info-bg{
+  .base-view{
+    background: #F7F7F7;
+  }
+}
+.wexin{
+  .text-s{
+    //小程序里的间距比较高 todo
+    margin-top:-10px;
+  }
+}
+//布局 左右15px
+.layoutlr{
+  padding: 0px 15px;
+}
+.editnamebtn{
+margin-top: 30px;
+}
+.account-info{
+  .list-menu-label{
+    text-align: left
+  }
+}
+.jifen{
+  position: relative;
+}
+.systemmessage{
+  background: #f4f4f4 !important;
+}
+///订单意向书
+.intentDeal{
+  position: relative;
+  &.card.imagecard{
+    margin-bottom: 10px;
+  }
+  .version{
+    bottom: -10px;
+    position: absolute;
+    right: 10px;
+  }
+}
+/*****分享********/
+.weixinhaoyou{
+  width:41px;
+  height:34px;
+}
+.pengyouquan{
+  width:37px;
+  height:37px;
+}
+.poster{
+  text-align: center;
+  .card{
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    .canvas{
+      margin: 0 auto;
+    }
+  }
+  .poster-footer{
+    margin-bottom: 20px;
+    .btn{
+      width: 60%;
+      margin: 0 auto;
+    }
+  }
+}
+.index-share{
+  font-size: 14px;
+  margin-left: 10px;
+  .iconfont{
+    &::before{
+      color: black;
+      font-size: 16px;
+      margin-right: 5px;
+    }
+  }
+}

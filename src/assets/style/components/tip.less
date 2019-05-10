@@ -1,0 +1,70 @@
+@charset "UTF-8";
+.tipbox-main {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+
+  .tipbox-mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    opacity: 0.2;
+    z-index: 9999;
+  }
+}
+
+.tipbox {
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  z-index: 50000;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  font-size: 14px;
+  transition: .6s;
+  opacity: 1;
+}
+
+.tipbox.top {
+  opacity: 0;
+}
+
+.tipbox.bottom {
+  opacity: 0;
+  transition: .3s;
+}
+
+.tipbox-msg {
+  width: 60%;
+  max-width: 400px;
+  min-width: 200px;
+  display: inline-block;
+  background: #666;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: #fff;
+  line-height: 20px;
+  z-index: 10999;
+  text-align: center;
+  // 保证一行代码时也能居中对齐
+  // 多行时左对齐
+  span {
+    text-align: left;
+    display: inline-block;
+  }
+}
+
+.toptriangleTip, .waringblueTip {
+  text-align: initial;
+}
+
+.toptriangleTip .tipbox-msg, .waringblueTip .tipbox-msg {
+  top: initial;
+  right: initial;
+}
+
+.waringblueTip .tipbox-msg {
+  transform: translateX(-50%);
+}

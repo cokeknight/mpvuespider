@@ -1,0 +1,154 @@
+<style lang="less">
+  @import "./assets/style/weui.wxss";
+  @import "./assets/style/app.wxss";
+
+</style>
+
+<script lang="typescript">
+import wepy from '@/utils/wepy';
+import storage from '@/services/storage';
+import 'wepy-async-function';
+import { doInitWxApp } from '@/services/wx_auth';
+
+export default class extends wepy.app {
+  config = {
+    pages: [
+      'pages/loveCar/intentDeal',  // 爱车 订购意向书
+      'pages/loveCar/index',       // 爱车
+      'pages/home/registerLogin',  // 登陆注册
+
+      'pages/agreement/index',     // 订购协议
+      'pages/account/index',       // 账号
+      'pages/index/discovery',     // 首页 发现
+      'pages/index/index',         // 首页
+      'pages/home/login'           // 我的 登录
+    ],
+    window: {
+      'navigationBarTitleText': '骚扰拦截',
+      'backgroundTextStyle': 'light',
+      'navigationBarBackgroundColor': 'white',
+      'navigationBarTextStyle': 'black'
+    }
+  };
+
+  globalData = {
+    userInfo: null,
+    wxuserInfo: null,
+    auth: {
+      login_code: null
+    },
+    appid: 'wxf0ec11e76377c27c', // appid需自己提供，此处的appid我随机编写
+    secret: '6e0ae84932143d851b23e6540a8acb99'// secret需自己提供，此处的secret我随机编写
+  };
+
+  constructor() {
+    super();
+    this.use('requestfix');
+    this.use('promisify');
+  }
+
+  async onLaunch() {
+    console.log(wepy.$instance);
+    await doInitWxApp();
+    // 同步权限数据
+    this.syncStoreConfig('login_code');
+    this.syncStoreConfig('third_session');
+    this.syncStoreConfig('user');
+  }
+
+  syncStoreConfig(key) {
+    try {
+      const value = storage.get(key);
+      if (value !== '') {
+        console.info(`[auth]${key} sync success `);
+        wepy.$instance.globalData.auth[key] = value;
+      }
+    } catch (e) {
+      console.warn(`[auth]${key} sync fail `);
+    }
+  }
+
+  sleep(s) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve('promise resolved');
+      }, s * 1000);
+    });
+  }
+
+  async testAsync() {
+    const data = await this.sleep(3);
+    console.log(data);
+  }
+
+  /**
+   * 检查session_key是否过期
+   */
+  async checkSession() {
+    try {
+      await wepy.checkSession();
+      console.info('[wx_login] check third session success');
+    } catch (e) {
+      // 异步刷新
+      console.info('[wx_login] check third session fail');
+      await this.doLogin();
+    }
+  }
+
+  // 检查登录
+  async checkLogin() {
+    let { skey } = storage.get('wxuserInfo');
+    if (skey) {
+      // 检查 session_key 是否过期
+      await this.checkSession();
+    } else {
+      // 无skey，作为首次登录
+      this.doLogin();
+    }
+  }
+
+  // 获取用户配置
+  async getSetting() {
+    try {
+      const result = await wepy.getSetting();
+      if (result) {
+
+      }
+    } catch (error) {
+
+    }
+  }
+
+  // getUserInfo(cb) {
+  //   const that = this
+  //   if (this.globalData.userInfo) {
+  //     return this.globalData.userInfo
+  //   }
+  //   // const result = await wepy.getUserInfo();
+  //   wepy.getUserInfo({
+  //     success (res) {
+  //       that.globalData.userInfo = res.userInfo
+  //       cb && cb(res.userInfo)
+  //     }
+  //   })
+  // }
+  doLogin() {
+    // var that = this
+    // // 登录
+    // wx.login({
+    //   async success(_res) {
+    //     // console.log(_res.code)
+    //     try {
+    //       const { skey } = await code2session(that.globalData.appid, that.globalData.secret, _res.code)
+    //       const wxuserInfo = { skey }
+    //       that.globalData.wxuserInfo = wxuserInfo
+    //       wx.setStorageSync('wxuserInfo', wxuserInfo)
+    //     } catch (e) {
+    //       console.log(e)
+    //     }
+    //     // 发送 _res.code 到后台换取 openId, sessionKey, unionId
+    //   }
+    // })
+  }
+}
+</script>

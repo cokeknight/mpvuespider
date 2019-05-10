@@ -1,0 +1,554 @@
+// 深蓝色
+@c-primary: rgba(59, 209, 202, 1);
+// 橙黄色
+@c-warning: #FF9B00;
+// 红色
+@c-danger: #FF7676;
+// 深灰
+@c-dark: #666;
+// 浅灰
+@c-light: #aaa;
+//白色背景
+@c-white: #fff;
+
+.ml0 {
+  margin-left: 10px;
+}
+
+.wap-base {
+  .base-view {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    top: 48px;
+    // overflow: hidden;
+    // height: 100%;
+    &.hidden{
+      overflow: hidden;
+      height: 100%;
+    }
+    &.wx {
+      top: 0px;
+    }
+
+    &.hasfooter {
+      bottom: 61px;
+      // height: calc(100% + 119px);
+      .clearfix;
+    }
+
+    .app-footer {
+      height: 61px;
+    }
+  }
+
+  background: #efefef;
+  font: 13px/1.8 PingFang SC, Microsoft YaHei, Arial;
+  color: #333;
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    font-size: 13px;
+  }
+
+  //一级标题
+  h1 {
+    font-size: 17px;
+
+  }
+
+  h2 {
+    font-size: 16px;
+  }
+
+  h3 {
+    font-size: 15px;
+  }
+
+  input, button, textarea {
+    font-size: 14px;
+  }
+
+  //字体大小
+  .size10 {
+    font-size: 20px;
+    transform: scale(.5);
+  }
+
+  // 深蓝色
+  .c-primary {
+    color: @c-primary;
+  }
+
+  // 橙黄色
+  .c-warning {
+    color: @c-warning;
+  }
+
+  // 红色
+  .c-danger {
+    color: @c-danger;
+  }
+
+  // 深灰
+  .c-dark {
+    color: @c-dark;
+  }
+
+  // 浅灰
+  .c-light {
+    color: @c-light;
+  }
+
+  //白色背景
+  .c-white {
+    color: @c-white;
+  }
+
+  //间距
+  .space-top {
+    margin-top: 10px;
+  }
+
+  .space-right {
+    margin-right: 10px;
+  }
+
+  .space-bottom {
+    margin-bottom: 10px;
+  }
+
+  .space-left {
+    margin-left: 10px;
+  }
+
+  .space-top20 {
+    margin-top: 20px;
+  }
+
+  .space-right20 {
+    margin-right: 20px;
+  }
+
+  .space-bottom20 {
+    margin-bottom: 20px;
+  }
+
+  .space-left20 {
+    margin-left: 20px;
+  }
+
+  //只有当头部距离内容有间距的时候可以使用这个类，
+  //其他情况最好不要使用。加在v-scroll-view上。
+  .head-gap {
+    padding-top: 10px;
+  }
+
+  //对齐方式
+  .text-left {
+    text-align: left;
+  }
+
+  .text-right {
+    text-align: right;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .text-justify {
+    text-center: justify;
+  }
+
+  .text-lowercase {
+    text-transform: lowercase;
+  }
+
+  .text-uppercase {
+    text-transform: uppercase;
+  }
+
+  // 显示/隐藏
+  .state-show {
+    display: block !important;
+  }
+
+  .state-hide {
+    display: none !important;
+  }
+
+  // 背景色
+  .bg-white, &.bg-white {
+    background: @c-white;
+  }
+
+  .bg-gray, &.bg-gray {
+    background: @grey-f0;
+  }
+
+  // 通常与上面距离较远
+  .btn-space-top {
+    margin-top: 40px;
+  }
+
+  .btn-default {
+    background: @c-white;
+    border: 1px solid #aaa;
+    color: #aaa;
+    line-height: 38px;
+  }
+
+  .btn-primary {
+    color: @c-white !important;
+    background: @c-primary;
+    height: 44px;
+    line-height: 44px;
+  }
+
+  .btn-label {
+    color: white;
+    border: 1px white solid;
+    border-radius: 20px;
+    width: 100px;
+  }
+
+  .btn-loginout {
+    color: @c-white !important;
+    background: @gray-c5;
+  }
+
+  .btn-warning {
+    color: @c-white !important;
+    background: @c-warning;
+  }
+
+  .btn-danger {
+    color: @c-white !important;
+    background: @c-danger;
+  }
+
+  .btn-disabled, input[type="button"]:disabled, input[type="submit"]:disabled, button:disabled {
+    background: #ccc !important;
+    color: #aaa !important;
+    border: none !important
+  }
+
+  //辅助按钮
+  .btn-small {
+    line-height: 27px;
+    font-size: 13px;
+    border-radius: 14px;
+    padding: 0 10px;
+    min-width: 72px;
+
+    &.btn-default {
+      line-height: 25px;
+    }
+  }
+
+  //按钮宽度自适应
+  .btn-auto {
+    min-width: auto;
+  }
+
+  // 按钮通栏
+  .btn-single {
+    border-radius: 5px;
+    line-height: 44px;
+    width: 100%;
+  }
+
+  //按钮全屏显示
+  .btn-full {
+    color: @c-primary;
+  }
+
+  .btn-full {
+    width: 100%;
+    border-radius: 0;
+    line-height: 50px;
+    border: none;
+  }
+
+  // 固定在最下面
+  .btn-bottom, .btn-group-bottom {
+    position: absolute !important;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+  }
+
+  .btn-group-bottom {
+    padding: 15px;
+  }
+
+  .btn-group-full {
+    padding: 0;
+
+    .btn-mod {
+      // @extend .btn-full;
+      background: #fff;
+      color: @c-primary !important;
+    }
+  }
+
+  //按钮组
+  .btn-group {
+    text-align: center;
+
+    .btn-mod {
+      margin-left: 10px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    &-auto {
+      .btn-mod {
+        min-width: auto;
+      }
+    }
+
+    &-justify {
+      position: relative;
+      text-align: left;
+
+      .btn-mod {
+        &:last-child {
+          position: absolute;
+          right: 0;
+        }
+      }
+    }
+
+    &-gap {
+      padding: 0 10px;
+
+      &.btn-group-justify {
+        .btn-mod {
+          &:last-child {
+            right: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  //flex-mode
+  .flex-box {
+    display: flex;
+    display: -webkit-box;
+    align-items: center;
+
+    & > * {
+      flex: 1;
+      -webkit-box-flex: 1;
+      display: block;
+
+      &.no-flex {
+        flex: initial;
+        -webkit-box-flex: initial;
+
+        &.black {
+          color: #000;
+        }
+
+        &.orange {
+          color: #ff9b00;
+        }
+      }
+    }
+
+    //顶部对齐
+    &.flex-start {
+      align-items: flex-start;
+    }
+  }
+
+  //上下左右箭头
+  .xhh-arr {
+    width: 17px;
+    height: 17px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 2px;
+      width: 10px;
+      height: 10px;
+      border: 3px solid #ddd;
+      border-width: 0 3px 3px 0;
+      transform: rotate(-45deg);
+    }
+
+    &.arr-down {
+      &:before {
+        transform: rotate(45deg);
+        top: -1px;
+        left: 2px;
+      }
+
+    }
+
+    &.arr-up {
+      &:before {
+        transform: rotate(225deg);
+        top: 5px;
+        left: 2px;
+      }
+    }
+
+    &.arr-left {
+      &:before {
+        transform: rotate(135deg);
+        top: 2px;
+        left: 5px;
+      }
+    }
+  }
+
+  //提示性文字
+  .xhh-warning {
+    background: #fff7e6;
+    color: #ff9b00;;
+    font-size: 13px;
+    padding: 12px 20px 12px 15px;
+    line-height: 1.5;
+    position: relative;
+    margin-bottom: 10px;
+
+    &-close {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: 50%;
+      right: 15px;
+      display: none;
+      transform: translateY(-50%);
+    }
+
+    &-hasclose {
+      padding-right: 40px;
+
+      .xhh-warning-close {
+        display: block;
+      }
+    }
+
+    &-absolute {
+      position: absolute;
+      z-index: 10;
+      left: 0;
+      right: 0;
+      top: 0;
+    }
+  }
+}
+
+.top48 {
+  position: relative;
+  top: 48px;
+}
+
+.wap-base {
+
+  //白底导航
+  .titlebar {
+    background: #fff;
+    box-shadow: 0 1px 0 0 rgba(239, 239, 239, 0.50);
+
+    h1 {
+      font-size: 20px;
+      color: #0B2928;
+    }
+
+    .titlebar-back {
+      padding: 0 15px;
+    }
+
+    &-subhead {
+      color: initial;
+    }
+  }
+
+  //蓝底导航加titlebar-blue
+  .titlebar-blue {
+    background: #3f8ffe;
+    box-shadow: none;
+    color: #fff;
+
+    h1 {
+      color: #fff;
+    }
+
+    .titlebar-back {
+      .xhh-icon {
+        color: #fff
+      }
+    }
+  }
+
+  .dynamicCode {
+    background: none;
+    color: @c-primary;
+    font-size: 13px;
+
+    &.dynamicCode-gray {
+      color: @c-light;
+    }
+
+    &.btn-code {
+      .btn-code
+    }
+  }
+}
+
+.flex-box {
+  display: flex;
+  align-items: center;
+
+  & > * {
+    flex: 1;
+    display: block;
+
+    &.no-flex {
+      flex: initial;
+
+      &.black {
+        color: #000;
+      }
+
+      &.orange {
+        color: #ff9b00;
+      }
+    }
+  }
+
+  //顶部对齐
+  &.flex-start {
+    align-items: flex-start;
+  }
+}
+
+.bg-white {
+  background: @c-white;
+}
+
+.view {
+  transition: all 0.2s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+  // overflow: hidden;
+}

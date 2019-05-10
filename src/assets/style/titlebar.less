@@ -1,0 +1,117 @@
+.titlebar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  height: 48px;
+  line-height: 48px;
+  background: #10a0eb;
+
+  &.transparent {
+    background-color: transparent;
+  }
+
+  &.title-gray {
+    background: #a7abae;
+  }
+}
+
+.titlebar-title {
+  color: #fff;
+  font-weight: normal;
+  text-align: center;
+  height: 48px;
+  line-height: 48px;
+  font-size: 20px;
+  margin: 0 45px;
+  text-overflow: ellipsis;
+}
+
+.titlebar-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 20px;
+  height: 100%;
+  font-size: 0;
+
+  a {
+    vertical-align: middle;
+  }
+}
+
+.titlebar-subhead {
+  position: absolute;
+  right: 5%;
+  top: 0;
+  color: #fff;
+  font-size: 14px;
+
+  .xhh-icon {
+    top: 0;
+  }
+
+  // 增加触摸面积
+  .titlebar_rightlink {
+    display: block;
+  }
+}
+
+.titlebar-choose {
+  display: inline-block;
+  padding: 0 5px;
+}
+
+.titlebar-navlist {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #fff;
+  font-size: 16px;
+  color: #333;
+
+  li {
+    border-top: #ddd 1px solid;
+    padding: 0 12px;
+
+    &.active {
+      background: #eee;
+    }
+  }
+}
+
+.titlebar-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 98;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.titlebar-tab {
+  width: 70%;
+  line-height: 30px;
+  margin: 7px auto 0;
+  border: #10A0EB 1px solid;
+  color: #10A0EB;
+  font-size: 14px;
+  text-align: center;
+  height: 30px;
+  border-radius: 5px;
+  overflow: hidden;
+
+  li {
+    float: left;
+    width: 50%;
+
+    &.active {
+      background: #10A0EB;
+      color: #fff;
+    }
+  }
+}

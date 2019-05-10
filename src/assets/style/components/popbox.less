@@ -1,0 +1,159 @@
+@charset "UTF-8";
+.appMask, .mask, .vip-xlb-pop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .6);
+}
+
+.popbox {
+  font-family: PingFang SC, Microsoft YaHei, Arial;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  z-index: 29999;
+
+  .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 20px;
+    color: #999;
+    z-index: 100;
+    padding: 12px 8px 15px 10px;
+    line-height: 0;
+  }
+}
+
+.popbox-body {
+  position: relative;
+  width: 80%;
+  z-index: 30000;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 50px 30px 30px;
+  color: #666;
+  box-sizing: border-box;
+  background: #fcfcfc;
+  line-height: 25px;
+}
+
+.popbox-header {
+  text-align: center;
+
+  .popbox-title {
+    font-size: 20px;
+    line-height: 25px;
+    padding: 27px 0 0;
+    margin-bottom: -5px;
+    font-weight: normal;
+  }
+}
+
+.popbox-content {
+  text-align: center;
+  padding: 23px 15px;
+  font-size: 13px;
+  word-break: break-all;
+  line-height: 16px;
+  color: #aaa;
+}
+
+.popbox-align {
+  display: inline-block;
+  text-align: left;
+}
+
+.popbox-foot {
+  border-top: 1px solid #EFEFEF;
+  text-align: center;
+  font-size: 15px;
+  line-height: 30px;
+  padding: 13px 0;
+  display: flex;
+}
+
+.popbox-foot a {
+  -webkit-box-flex: 1;
+  flex: 1;
+  // width: 100%;
+  display: block;
+  border-left: 1px solid #EFEFEF;
+
+  &:first-child {
+    border: 0;
+  }
+
+  color: #aaa;
+
+  &.primary {
+    color: #28b5ff;
+  }
+}
+
+//充值页面提示弹框
+.popMessBody {
+  .popbox-body {
+    overflow: initial;
+  }
+
+  .popMess {
+    padding: 50px 25px;
+    text-align: center;
+    color: #666666;
+    font-size: 15px;
+
+    p {
+      text-align: left;
+    }
+
+    button {
+      margin-top: 30px;
+    }
+  }
+
+  .popClose {
+    position: absolute;
+    margin-top: 30px;
+    left: 45%;
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  @media screen and (max-width: 350px) {
+    .messPos {
+      top: 180px !important;
+    }
+  }
+
+  .messPos {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 160px;
+
+    input {
+      margin-right: 3px;
+      height: 17px;
+      width: 17px;
+      vertical-align: sub;
+    }
+  }
+}
+
+// iphone6 要定死宽度
+@media (width: 375px) {
+  .popbox-body {
+    width: 290px;
+  }
+}

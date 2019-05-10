@@ -1,0 +1,396 @@
+@charset "UTF-8";
+@import "../variable/global";
+
+@mixin font-size($size) {
+  font-size: $size + px;
+}
+// 一行文本多则截取掉
+@mixin text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+// 文字设置
+@mixin fontStyle($size, $color, $family) {
+  font-size: $ size;
+  color: $ color;
+  font-family: $ family;
+}
+
+//上下对齐的方式
+@mixin vertical-align($direction:middle) {
+  vertical-align: $ direction;
+}
+//文本左，中，右对齐方式
+@mixin text-align($direction:center) {
+  text-align: $ direction;
+}
+@mixin center-block ($extend:true) {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin float($float:left) {
+  float: $ float;
+}
+
+//高度与行高的配置
+@mixin height($extend:true, $height : auto, $lineHeight:unset) {
+  @if($ extend) {
+  height: $ height;
+  line-height: $ lineHeight;
+} @else {
+  height: $ height;
+  line-height: unset;
+}
+}
+//最大宽度
+@mixin max-width {
+  width: 100%;
+  max-width: $ max-width;
+}
+
+/* position relative obsolute fixed ...*/
+@mixin position($value:relative) {
+  position: $ value;
+}
+
+/*
+Data: 2015/03/09
+Name: padding margin value 基础 循环值设定
+$attribute;
+$direction;
+$value;
+*/
+@mixin box-value-site($value:20) {
+  $attribute: padding, margin;
+  $direction: left, right, top, bottom;
+@each $att in $attribute {
+@each $dir in $direction {
+  .#{$att}-#{$dir}-#{$value} {
+    #{$att} -#{$dir}: $value + px;
+  }
+}
+}
+}
+//基础宽度设置
+@mixin width($value:10) {
+@for $i from 1 to $value {
+  .width-#{$i} {
+    width: $i * 10%;
+  }
+}
+}
+
+//方向属性
+@mixin box-img-box($direction, $width ,$max-width) {
+  .box-img-width {
+    text-align: $ direction;
+
+    img {
+      width: $ width;
+      max-width: $ max-width;
+    }
+  }
+}
+// 变量设置
+@mixin box-img-dir($direction, $width ,$max-width) {
+  text-align: $ direction;
+  img {
+    width: $ width;
+    max-width: $ max-width;
+  }
+}
+//图片尺寸大小
+@mixin img-size-value($width, $max-width) {
+  width: $ width;
+  max-width: $ max-width;
+}
+//border
+@mixin border-value($width:1px,$color:$grey-dd,$radius:50%) {
+  border-width: $ width;
+  border-color: $ color;
+  border-radius: $ radius;
+  border-style: solid;
+}
+
+@mixin layer-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+//fzc: 绝对剧中, 默认垂直剧中，传true则左右上下都剧中
+@mixin absolute-center($all: null) {
+  position: absolute;
+  top: 50%;
+@if $all {
+  left: 50%;
+  transform: translate(-50%, -50%);
+} @else {
+  transform: translate(0, -50%);
+}
+}
+
+@mixin border-unilateral-tb($color, $direction) {
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.5, transparent), color-stop(0.5, $ color));
+  background-position: $ direction left;
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+}
+@mixin border-unilateral-lr($color, $direction) {
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(0.5, transparent), color-stop(0.5, $ color));
+  background-position: $ direction left;
+  background-repeat: no-repeat;
+  background-size: 1px 100%;
+}
+@mixin border($color) {
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.5, transparent), color-stop(0.5, $ color)), -webkit-gradient(linear, left top, right top, color-stop(0.5, transparent), color-stop(0.5, $ color)), -webkit-gradient(linear, left top, left bottom, color-stop(0.5, transparent), color-stop(0.5, $ color)), -webkit-gradient(linear, right top, left top, color-stop(0.5, transparent), color-stop(0.5, $ color));
+  background-position: top, right, bottom, left;
+  background-repeat: no-repeat;
+  background-size: 100% 1px, 1px 100%, 100% 1px, 1px 100%;
+}
+
+// 清除浮动 chenrunsheng
+@mixin clearfix() {
+  clear: both;
+  overflow: hidden;
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+// float left & right
+@mixin float($float:left) {
+  float: $ float;
+}
+
+// disabled
+// 禁用样式，加!important
+@mixin disabled($bgColor:#e6e6e6,$textColor:#ababab) {
+  background-color: $ bgColor !important;
+  color: $ textColor !important;
+  cursor: not-allowed !important;
+}
+
+@mixin border-radius($radius: $baseRadius) {
+@include prefixer(border-radius, $radius, webkit);
+  border-radius: $ radius;
+}
+
+// box-sizing
+@mixin box-sizing($type: border-box) {
+  // border-box | padding-box | content-box
+@include prefixer(box-sizing, $type, webkit moz o);
+}
+
+// display:flex
+@mixin display($type: flex) {
+@include prefixer-value(display, flex, webkit moz o);
+}
+
+@mixin prefixer($property, $value, $prefixes: o webkit) {
+@each $prefix in $prefixes {
+@if $prefix == webkit {
+  -webkit- #{$property}: $ value;
+}
+@else if $prefix == moz {
+  -moz- #{$property}: $ value;
+}
+@else if $prefix == ms {
+  -ms- #{$property}: $ value;
+}
+@else if $prefix == o {
+  -o- #{$property}: $ value;
+}
+}
+  #{$property}: $ value;
+}
+
+// 默认这里将输出webkit前缀，moz前缀和标准
+@mixin prefixer-value($property, $value, $prefixes: webkit moz) {
+@each $prefix in $prefixes {
+@if $prefix == webkit {
+  #{$property}: -webkit- #{$value};
+}
+@else if $prefix == moz {
+  #{$property}: -moz- #{$value};
+}
+@else if $prefix == o {
+  #{$property}: -o- #{$value};
+}
+@else if $prefix == ms {
+  #{$property}: -ms- #{$value};
+}
+}
+
+  #{$property}: $ value;
+}
+
+@mixin inline-block ($extend:true) {
+@if $extend {
+@extend %inline-block;
+} @else {
+  display: inline-block;
+}
+}
+%
+inline-block {
+@include inline-block(false);
+}
+
+// allicons.scss也有一份，修改的时候记得改下
+@mixin sprite-background($width, $height) {
+  background-size: 100% 100%;
+@extend %inline-block;
+  width: $width*$ rate;
+@include height(true, $height*$rate, $height*$rate);
+  display: inline-block;
+}
+
+//placeholder
+%
+font-size-12 {
+@include font-size(12);
+}
+
+%
+font-size-14 {
+@include font-size(14);
+}
+
+%
+font-size-15 {
+@include font-size(15);
+}
+
+%
+font-size-16 {
+@include font-size(16);
+}
+
+%
+font-size-17 {
+@include font-size(17);
+}
+
+%
+font-size-18 {
+@include font-size(18);
+}
+
+%
+font-size-19 {
+@include font-size(19);
+}
+
+%
+font-size-20 {
+@include font-size(20);
+}
+
+%
+font-size-22 {
+@include font-size(22);
+}
+
+%
+font-size-24 {
+@include font-size(24);
+}
+
+%
+font-size-26 {
+@include font-size(26);
+}
+
+%
+font-size-28 {
+@include font-size(28);
+}
+
+%
+font-size-30 {
+@include font-size(30);
+}
+
+%
+font-size-32 {
+@include font-size(32);
+}
+
+%
+font-size-34 {
+@include font-size(34);
+}
+
+%
+font-size-36 {
+@include font-size(36);
+}
+
+%
+font-size-38 {
+@include font-size(38);
+}
+
+%
+font-size-40 {
+@include font-size(40);
+}
+
+%
+font-size-42 {
+@include font-size(42);
+}
+
+%
+font-size-44 {
+@include font-size(44);
+}
+
+%
+ovh {
+  overflow: hidden;
+}
+
+%
+fwb {
+  font-weight: bold;
+}
+
+%
+relative {
+@include position(relative);
+}
+
+%
+absolute {
+@include position(absolute);
+}
+
+%
+float {
+@include float;
+}
+
+%
+vam {
+@include vertical-align(middle);
+}
+
+%
+text-align {
+@include text-align(center);
+}
+
+%
+float-right {
+@include float(right);
+}
